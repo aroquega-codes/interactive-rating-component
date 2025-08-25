@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      background-color: #262E38;
+      padding: 1rem;
+      color: white;
+    }
+
+    .attribution a {
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="layout">
+  <main class="main">
+
+    <article class="card" id="rate-form">
+
+      <div class="star">
+        <img src="./images/icon-star.svg" />
+      </div>
+
+      <div>
+        <h1 class="card__title">
+          How did we do?
+        </h1>
+
+        <p class="card__text my-4">
+          Please let us know how we did with your support request. All feedback is appreciated
+          to help us improve our offering!
+        </p>
+        <div>
+
+          <div class="rate-container">
+            <div class="rate-button">
+              <input type="radio" name="value" id="option-1" class="radio-button" value="1" />
+              <label for="option-1">
+                <div>1</div>
+              </label>
+            </div>
+
+            <div class="rate-button">
+              <input type="radio" name="value" id="option-2" class="radio-button" value="2" />
+              <label for="option-2">
+                <div>2</div>
+              </label>
+            </div>
+
+            <div class="rate-button">
+              <input type="radio" name="value" id="option-3" class="radio-button" value="3" />
+              <label for="option-3">
+                <div>3</div>
+              </label>
+            </div>
+
+            <div class="rate-button">
+              <input type="radio" name="value" id="option-4" class="radio-button" value="4" />
+              <label for="option-4">
+                <div>4</div>
+              </label>
+            </div>
+
+            <div class="rate-button">
+              <input type="radio" name="value" id="option-5" class="radio-button" value="5" />
+              <label for="option-5">
+                <div>5</div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="primary-button" type="button" onclick="submitForm();">
+        Submit
+      </button>
+    </article>
+
+    <article id="thankyou-form" class="card card__padded centered">
+      <img src="images/illustration-thank-you.svg" width="162" />
+
+      <p class="tag" id="score">
+        You selected <!-- Add rating here --> out of 5
+      </p>
+
+      <div>
+        <h1 class="card__title text__centered">
+          Thank you!
+        </h1>
+
+        <p class="card__text text__centered mt-4">
+          We appreciate you taking the time to give a rating. If you ever need more support,
+          don’t hesitate to get in touch!
+        </p>
+      </div>
+    </article>
+
+  </main>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">aroquega</a>.
+  </div>
+</body>
+
+<script>
+  const rateForm = document.querySelector('#rate-form');
+  const thankyouForm = document.querySelector('#thankyou-form')
+  const inputs = document.querySelectorAll("input[name='value']")
+  const score = document.querySelector('#score')
+
+
+  thankyouForm.style.display = 'none';
+
+  function submitForm() {
+    rateForm.style.display = 'none'
+    thankyouForm.style.display = 'flex'
+
+    let value = "";
+
+    for (i of inputs) {
+      if (i.checked) {
+        value = i.value;
+      }
+    }
+
+    score.textContent = `You selected ${value} out of 5`
+
+    // console.log(input.value)
+    // console.log(checkedInput)
+  }
+</script>
+
+</html>
