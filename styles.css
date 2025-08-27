@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Overpass:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+@property --primary-color {
+    syntax: "<color>";
+    inherits: true;
+}
+
 :root {
     font-family: 'Overpass';
 }
+
 
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    --primary-color: #FC7614;
 }
 
 body {
@@ -37,12 +44,6 @@ body {
     gap: 24px;
 }
 
-/*
- * card on desktop
-padding: 34.5px 30.5px;
-border-radius: 30px;
-gap: 32px;
-*/
 
 .centered {
     align-items: center;
@@ -60,19 +61,10 @@ gap: 32px;
     line-height: 30px;
 }
 
-/*
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 35px;
-
-*/
-
 .card__text {
     color: #969FAD;
     line-height: 22px;
     font-size: 14px;
-    /* font-size: 15px; */
-    /* line-height: 24px; */
 }
 
 ul {
@@ -83,10 +75,6 @@ ul {
     display: flex;
     justify-content: space-between;
 }
-
-/*
- * 24px
-*/
 
 .rate-selector {
     border: none;
@@ -107,14 +95,14 @@ ul {
 }
 
 .rate-selector:active {
-    background-color: #FC7614;
+    background-color: var(--primary-color);
     color: #262E38
 }
 
 .primary-button {
     border: none;
     cursor: pointer;
-    background-color: #FC7614;
+    background-color: var(--primary-color);
     border-radius: 22.5px;
     padding-block: 12.5px;
     width: 100%;
@@ -138,10 +126,6 @@ ul {
     justify-content: center;
 }
 
-/*
- * 48px, 48px
-*/
-
 .my-4 {
     margin-block: 16px;
 }
@@ -155,7 +139,7 @@ ul {
 }
 
 .radio-button {
-    /* appearance: none; */
+    appearance: none;
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -182,11 +166,6 @@ ul {
     padding-top: 4.9px;
 }
 
-/* size 51px */
-/*
-    font-size: 16px;
-*/
-
 .radio-button:focus-visible+label {
     outline: solid white;
 }
@@ -198,13 +177,13 @@ ul {
 }
 
 .radio-button:checked+label {
-    background-color: #FC7614;
+    background-color: var(--primary-color);
     color: #262E38
 }
 
 .tag {
     background-color: #262E38;
-    color: #FC7614;
+    color: var(--primary-color);
     padding-block: 6px;
     padding-inline: 19.5px;
     font-size: 15px;
@@ -220,4 +199,34 @@ ul {
 
 .text__centered {
     text-align: center;
+}
+
+@media screen and (min-width: 550px) {
+    .card {
+        padding: 34.5px 30.5px;
+        border-radius: 30px;
+        gap: 32px;
+    }
+
+    .card__title {
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 35px;
+    }
+
+    .card__text {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .star {
+        width: 48px;
+        height: 48px;
+    }
+
+    .radio-button+label {
+        width: 51px;
+        height: 51px;
+        font-size: 16px;
+    }
 }

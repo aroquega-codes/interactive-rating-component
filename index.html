@@ -129,8 +129,6 @@
   thankyouForm.style.display = 'none';
 
   function submitForm() {
-    rateForm.style.display = 'none'
-    thankyouForm.style.display = 'flex'
 
     let value = "";
 
@@ -140,10 +138,14 @@
       }
     }
 
-    score.textContent = `You selected ${value} out of 5`
+    if (!value) {
+      return;
+    }
 
-    // console.log(input.value)
-    // console.log(checkedInput)
+    rateForm.style.display = 'none'
+    thankyouForm.style.display = 'flex'
+
+    score.textContent = `You selected ${value} out of 5`
   }
 </script>
 
