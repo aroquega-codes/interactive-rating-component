@@ -30,66 +30,67 @@
 <body class="layout">
   <main class="main">
 
-    <article class="card" id="rate-form">
+    <form onsubmit="submitForm(event)">
+      <article class="card" id="rate-form">
+        <div class="star">
+          <img src="./images/icon-star.svg" alt="rate us" />
+        </div>
 
-      <div class="star">
-        <img src="./images/icon-star.svg" alt="rate us" />
-      </div>
-
-      <div>
-        <h1 class="card__title">
-          How did we do?
-        </h1>
-
-        <p class="card__text my-4">
-          Please let us know how we did with your support request. All feedback is appreciated
-          to help us improve our offering!
-        </p>
         <div>
+          <h1 class="card__title">
+            How did we do?
+          </h1>
 
-          <div class="rate-container">
-            <div class="rate-button">
-              <input type="radio" name="value" id="option-1" class="radio-button" value="1" />
-              <label for="option-1">
-                <div>1</div>
-              </label>
-            </div>
+          <p class="card__text my-4">
+            Please let us know how we did with your support request. All feedback is appreciated
+            to help us improve our offering!
+          </p>
+          <div>
 
-            <div class="rate-button">
-              <input type="radio" name="value" id="option-2" class="radio-button" value="2" />
-              <label for="option-2">
-                <div>2</div>
-              </label>
-            </div>
+            <div class="rate-container">
+              <div class="rate-button">
+                <input type="radio" name="value" id="option-1" class="radio-button" value="1" />
+                <label for="option-1">
+                  1
+                </label>
+              </div>
 
-            <div class="rate-button">
-              <input type="radio" name="value" id="option-3" class="radio-button" value="3" />
-              <label for="option-3">
-                <div>3</div>
-              </label>
-            </div>
+              <div class="rate-button">
+                <input type="radio" name="value" id="option-2" class="radio-button" value="2" />
+                <label for="option-2">
+                  2
+                </label>
+              </div>
 
-            <div class="rate-button">
-              <input type="radio" name="value" id="option-4" class="radio-button" value="4" />
-              <label for="option-4">
-                <div>4</div>
-              </label>
-            </div>
+              <div class="rate-button">
+                <input type="radio" name="value" id="option-3" class="radio-button" value="3" />
+                <label for="option-3">
+                  3
+                </label>
+              </div>
 
-            <div class="rate-button">
-              <input type="radio" name="value" id="option-5" class="radio-button" value="5" />
-              <label for="option-5">
-                <div>5</div>
-              </label>
+              <div class="rate-button">
+                <input type="radio" name="value" id="option-4" class="radio-button" value="4" />
+                <label for="option-4">
+                  4
+                </label>
+              </div>
+
+              <div class="rate-button">
+                <input type="radio" name="value" id="option-5" class="radio-button" value="5" />
+                <label for="option-5">
+                  5
+                </label>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <button class="primary-button" type="button" onclick="submitForm();">
-        Submit
-      </button>
-    </article>
+        <button class="primary-button" type="submit">
+          Submit
+        </button>
+      </article>
+    </form>
 
     <article id="thankyou-form" class="card card__padded centered">
       <img src="images/illustration-thank-you.svg" width="162" />
@@ -128,7 +129,8 @@
 
   thankyouForm.style.display = 'none';
 
-  function submitForm() {
+  function submitForm(e) {
+    e.preventDefault();
 
     let value = "";
 
