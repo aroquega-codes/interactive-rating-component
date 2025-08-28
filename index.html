@@ -92,7 +92,7 @@
       </article>
     </form>
 
-    <article id="thankyou-form" class="card card__padded centered">
+    <article id="thankyou-form" class="card card__padded centered" hidden>
       <img src="images/illustration-thank-you.svg" width="162" />
 
       <p class="tag" id="score">
@@ -145,7 +145,8 @@
     }
 
     rateForm.style.display = 'none'
-    thankyouForm.style.display = 'flex'
+    thankyouForm.hidden = false;
+    thankyouForm.focus();
 
     score.textContent = `You selected ${value} out of 5`
   }
